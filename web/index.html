@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#263d30"><meta name="description" content="Bedrock. Your notes, solid ground. A private Markdown notebook on your own server.">
+  <title>Bedrock · Your notes, solid ground</title>
+  <link rel="manifest" href="manifest.webmanifest"><link rel="icon" href="icon.svg"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip-link" href="#workspace">Skip to notebook</a>
+<div id="app">
+  <header class="workspace-header">
+    <button class="brand" data-action="home" aria-label="Bedrock home"><img src="icon.svg" alt="" width="34" height="34"><span>bedrock<span class="brand-period">.</span></span></button>
+    <span class="header-divider"></span><span class="brand-description">A FOUNDATION FOR IDEAS</span>
+    <nav class="rail-top" aria-label="Workspace tools">
+      <button data-action="notes" class="active" aria-label="Notes"><span aria-hidden="true">▤</span> Notes</button>
+      <button data-action="graph" aria-label="Graph view"><span aria-hidden="true">⌗</span> Atlas</button>
+      <button data-action="daily" aria-label="Open today's note"><span aria-hidden="true">▦</span> Daily</button>
+    </nav>
+    <div class="header-actions"><button data-action="toggle-inspector" aria-label="Show connections" aria-expanded="false"><span aria-hidden="true">↗</span> Links</button><button data-action="settings" aria-label="Storage and settings"><span aria-hidden="true">⚙</span><span class="settings-label"> Settings</span></button></div>
+  </header>
+  <aside class="sidebar" aria-label="Notebook index">
+    <div class="vault-head"><div><span class="overline">YOUR WORKSPACE</span><strong>Field notes<span class="live-dot" title="Self-hosted notebook"></span></strong><small id="storage-label">Your own server</small></div><span class="index-mark" aria-hidden="true">01 /</span></div>
+    <div class="sidebar-actions"><button data-action="new"><span>＋ New note</span><kbd>Ctrl N</kbd></button></div>
+    <label class="search-box"><span aria-hidden="true">⌕</span><input id="search" type="search" placeholder="Find a thought…" aria-label="Search notes"><kbd>Ctrl K</kbd></label>
+    <div class="section-label"><span id="list-label">ALL NOTES</span><span id="note-count">0</span></div><div id="note-list" class="note-list"></div>
+    <details class="tag-section"><summary>COLLECTIONS <span aria-hidden="true">＋</span></summary><div class="section-label"><span>FILTER BY TAG</span><button id="clear-tag" title="Clear tag filter" hidden>Clear</button></div><div id="tag-list"></div></details>
+    <div class="sidebar-footer"><span class="server-mark" aria-hidden="true">▰</span><div>Your server. Your ground.<small>Private by design.</small></div><button data-action="settings" aria-label="Storage details">↗</button></div>
+  </aside>
+  <main id="workspace" tabindex="-1">
+    <div class="tabbar"><span class="working-label">ON YOUR DESK</span><div id="tabs"></div><button data-action="new" class="add-tab" aria-label="New note">＋</button><button data-action="toggle-sidebar" class="mobile-toggle" aria-label="Toggle notebook index" aria-expanded="false">☰</button></div>
+    <div class="document-toolbar"><div id="breadcrumb"></div><div class="mode-switch" role="group" aria-label="Editor mode"><button data-mode="edit" title="Markdown source">Write</button><button data-mode="split" title="Source and preview">Both</button><button data-mode="read" class="active" title="Reading view">Read</button></div><button data-action="more" title="Note actions" aria-label="Note actions">•••</button></div>
+    <section id="note-view"><div class="document-heading"><div class="sheet-topline"><span class="eyebrow">A THOUGHT WORTH KEEPING</span><span id="note-code">BR / 01</span></div><input id="title" aria-label="Note title" spellcheck="false"><div class="note-meta"><span id="modified"></span><span aria-hidden="true">/</span><span id="note-tags"></span></div></div>
+      <div id="writing-area" class="writing-area mode-read"><div class="editor-pane"><div class="pane-label">PLAIN TEXT <span>start with a thought</span></div><textarea id="editor" aria-label="Markdown editor" spellcheck="false" placeholder="What are you building on today?"></textarea></div><article id="preview" class="markdown" aria-label="Rendered Markdown"></article></div>
+      <div class="note-end"><span aria-hidden="true">▰</span><span>Build one thought at a time.</span><span class="end-rule"></span><span class="end-label">BEDROCK NOTES</span></div>
+    </section>
+    <section id="graph-view" hidden><div class="graph-heading"><div><span class="eyebrow">THE CONNECTION ATLAS</span><h1>See what builds on what.</h1><p>Follow a link. Find a new direction.</p></div><button data-action="back-to-note">↙ Back to the page</button></div><div class="graph-tools"><label><input type="checkbox" id="graph-labels" checked> Note titles</label><span id="graph-count"></span></div><div id="full-graph" class="full-graph"></div><div class="graph-hint">Select a block to open its note · Drag to rearrange</div></section>
+    <footer class="statusbar"><span id="save-status">Connecting…</span><div><span id="word-count"></span><span id="char-count"></span><span class="status-accent">MARKDOWN / BEDROCK</span></div></footer>
+  </main>
+  <aside class="inspector" aria-label="Note connections"><div class="inspector-top"><span>THE NEXT CONNECTION</span><button data-action="toggle-inspector" aria-label="Close connections">×</button></div><div class="inspector-content"><div class="section-title">Around this thought<button data-action="graph" title="Open atlas" aria-label="Expand graph">↗</button></div><div id="mini-graph" class="mini-graph"></div><div class="legend"><i></i>This note<i></i>Connected</div><div class="connections-heading">Links coming in<span id="backlink-count"></span></div><div id="backlinks"></div><div class="connections-heading">Links going out<span id="outgoing-count"></span></div><div id="outgoing"></div><div class="connections-heading">On this page</div><div id="outline"></div><div class="insight"><span>▰</span><p>Good ideas have foundations.<br>Use <code>[[Note title]]</code> to make a link.</p></div></div></aside>
+</div>
+<div id="toast" role="status" aria-live="polite"></div>
+<dialog id="dialog" aria-label="Notebook actions"><form id="dialog-form"><div id="dialog-content"></div><div class="dialog-buttons"><button type="button" id="dialog-cancel">Cancel</button><button type="submit" class="primary" id="dialog-submit">Continue</button></div></form></dialog>
+<input id="import-input" type="file" accept=".md,.markdown,text/markdown,text/plain" multiple hidden>
+<dialog id="connection-dialog" aria-labelledby="connection-title"><form id="connection-form"><div class="connection-brand"><img src="icon.svg" alt="" width="48" height="48"><span>bedrock.</span></div><span class="eyebrow">YOUR NOTES. SOLID GROUND.</span><h2 id="connection-title">Make yourself at home.</h2><p>Connect to your own Bedrock server to open your notebook.</p><label>SERVER ADDRESS<input id="server-url" type="url" placeholder="https://notes.example.org" required autocomplete="url"></label><label>ACCESS KEY<input id="server-key" type="password" autocomplete="off" maxlength="256"></label><p id="connect-hint" role="status">Use the HTTPS address of your self-hosted server.</p><button id="connect-submit" class="primary" type="submit">Open my notebook ↗</button></form></dialog>
+<script type="module" src="app.mjs"></script>
+</body></html>

@@ -1,0 +1,102 @@
+name: Build Bedrock packages
+on:
+  workflow_dispatch:
+    inputs:
+      linux_desktop:
+        description: Build Linux DEB/AppImage packages
+        type: boolean
+        default: false
+permissions:
+  contents: read
+jobs:
+  backend:
+    strategy:
+      matrix:
+        os: [ubuntu-24.04, windows-2022]
+    runs-on: ${{ matrix.os }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: cargo test --locked
+      - run: cargo clippy --locked --all-targets -- -D warnings
+      - run: node --test tests/client.test.mjs tests/connection.test.mjs
+      - run: cargo build --locked --release
+      - uses: actions/upload-artifact@v4
+        with:
+          name: server-${{ matrix.os }}
+          path: |
+            target/release/bedrock
+            target/release/bedrock.exe
+          if-no-files-found: error
+  desktop:
+    runs-on: windows-2022
+    defaults:
+      run:
+        working-directory: native
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: npm ci
+      - run: npm run tauri -- build --ci --no-bundle
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-windows-portable
+          path: native/src-tauri/target/release/app.exe
+          if-no-files-found: error
+  linux-desktop:
+    if: github.event_name == 'workflow_dispatch' && inputs.linux_desktop
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: native
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - run: sudo apt-get update && sudo apt-get install -y libwebkit2gtk-4.1-dev build-essential libxdo-dev libssl-dev librsvg2-dev libayatana-appindicator3-dev patchelf
+      - run: npm ci
+      - run: npm run tauri -- build --ci --bundles deb,appimage
+      - uses: actions/upload-artifact@v4
+        with:
+          name: native-linux
+          path: |
+            native/src-tauri/target/release/bundle/deb/*.deb
+            native/src-tauri/target/release/bundle/appimage/*.AppImage
+          if-no-files-found: error
+  android:
+    runs-on: ubuntu-24.04
+    defaults:
+      run:
+        working-directory: native
+    env:
+      NDK_VERSION: 29.0.14206865
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - uses: android-actions/setup-android@v3
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: aarch64-linux-android
+      - run: sdkmanager "platforms;android-36" "build-tools;36.0.0" "ndk;$NDK_VERSION"
+      - run: echo "NDK_HOME=$ANDROID_HOME/ndk/$NDK_VERSION" >> "$GITHUB_ENV"
+      - run: npm ci
+      - run: npm run tauri -- android build --debug --target aarch64 --apk --ci
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-arm64-debug
+          path: native/src-tauri/gen/android/app/build/outputs/apk/**/*.apk
+          if-no-files-found: error

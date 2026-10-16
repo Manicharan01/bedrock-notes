@@ -1,0 +1,30 @@
+services:
+  lattice:
+    build: .
+    image: bedrock-local:0.4.1
+    restart: unless-stopped
+    environment:
+      BEDROCK_BIND: 0.0.0.0:4173
+      BEDROCK_DB: /data/lattice.sqlite3
+      BEDROCK_PUBLIC_URL: ${BEDROCK_PUBLIC_URL:-${LATTICE_PUBLIC_URL:?Set the HTTPS public URL in .env}}
+      BEDROCK_TOKEN_FILE: /run/secrets/lattice_key
+      BEDROCK_ALLOWED_ORIGINS: tauri://localhost,http://tauri.localhost,https://tauri.localhost
+    ports:
+      - 127.0.0.1:4173:4173
+    volumes:
+      - lattice_data:/data
+    secrets:
+      - lattice_key
+    read_only: true
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+    cap_drop:
+      - ALL
+    security_opt:
+      - no-new-privileges:true
+    stop_grace_period: 15s
+secrets:
+  lattice_key:
+    file: ./secrets/access-key.txt
+volumes:
+  lattice_data:

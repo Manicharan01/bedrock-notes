@@ -1,0 +1,21 @@
+# Run with: docker compose -f compose.yaml -f deploy/compose.https.yaml up -d --build
+services:
+  caddy:
+    image: caddy:2-alpine
+    restart: unless-stopped
+    environment:
+      BEDROCK_DOMAIN: ${BEDROCK_DOMAIN:-${LATTICE_DOMAIN:?Set your real DNS hostname}}
+    ports:
+      - 80:80
+      - 443:443
+      - 443:443/udp
+    volumes:
+      - ./deploy/Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      lattice:
+        condition: service_healthy
+volumes:
+  caddy_data:
+  caddy_config:

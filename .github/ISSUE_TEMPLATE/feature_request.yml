@@ -1,0 +1,17 @@
+name: Feature proposal
+description: Describe a concrete workflow or improvement.
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: What are you trying to do?
+      description: Explain the current friction with a concrete example.
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed behavior
+      description: Include alternatives and how it fits a small personal notes app.
+    validations:
+      required: true

@@ -1,0 +1,23 @@
+✔ Markdown export names work across native save dialogs (1.9923ms)
+✔ a delayed save cannot discard a newer edit (0.9007ms)
+✔ revision conflicts preserve drafts and block further writes (0.4126ms)
+✔ transport failure retains edits and allows a deliberate retry (0.2163ms)
+✔ rename waits for pending saves and uses the next revision (0.3222ms)
+✔ a newer draft base tracks the save already acknowledged by the server (0.2566ms)
+✔ recovery restores a draft when the server still has its base content (0.2623ms)
+✔ recovery drops acknowledged drafts but preserves conflicting and orphaned drafts (0.2141ms)
+✔ malformed recovery data is rejected before applying any draft (0.2028ms)
+✔ server URL validation rejects credentials, paths and remote plaintext (3.7563ms)
+✔ transport uses an in-memory bearer and never redirects or embeds credentials in URL (0.4182ms)
+✔ draft storage separates server and durable notebook identity (0.1923ms)
+✔ refresh updates clean clients but cannot discard an edit arriving during download (3.4939ms)
+✔ refresh and write carry notebook identity to protect database replacements (0.4851ms)
+✔ clean client receives remote edits (0.1601ms)
+ℹ tests 15
+ℹ suites 0
+ℹ pass 15
+ℹ fail 0
+ℹ cancelled 0
+ℹ skipped 0
+ℹ todo 0
+ℹ duration_ms 101.0121

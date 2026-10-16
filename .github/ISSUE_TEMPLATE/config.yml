@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Documentation and troubleshooting
+    url: https://github.com/Manicharan01/bedrock-notes/blob/main/docs/README.md
+    about: Setup, hosting, recovery, and common problems.
+  - name: Report a security vulnerability privately
+    url: https://github.com/Manicharan01/bedrock-notes/security/advisories/new
+    about: Do not disclose vulnerabilities in public bug reports.

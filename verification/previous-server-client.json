@@ -1,0 +1,6 @@
+{
+  "previous_server_version": "0.3.0",
+  "bedrock_client_login": true,
+  "bedrock_client_read_notebook": true,
+  "bedrock_client_logout": true
+}

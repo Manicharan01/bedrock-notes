@@ -1,0 +1,11 @@
+{
+  "private": true,
+  "name": "bedrock-native",
+  "version": "0.4.1",
+  "scripts": {
+    "tauri": "tauri"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "2.12.3"
+  }
+}

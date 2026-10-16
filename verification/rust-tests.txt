@@ -1,0 +1,91 @@
+   Compiling bedrock-notes v0.4.1 (C:\Users\Manicharan\Documents\Codex\2026-10-15\new-chat\outputs\Bedrock)
+    Finished `test` profile [unoptimized + debuginfo] target(s) in 6.48s
+     Running unittests src\lib.rs (C:\Users\Manicharan\Documents\Codex\2026-10-15\new-chat\work\selfhost-build\backend\debug\deps\lattice-a164197a28178bcf.exe)
+
+running 1 test
+test auth::tests::expired_sessions_are_removed_and_do_not_authenticate ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running unittests src\main.rs (C:\Users\Manicharan\Documents\Codex\2026-10-15\new-chat\work\selfhost-build\backend\debug\deps\bedrock-8e49402c00b92a89.exe)
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\http.rs (C:\Users\Manicharan\Documents\Codex\2026-10-15\new-chat\work\selfhost-build\backend\debug\deps\http-17f845d6d8224268.exe)
+
+running 9 tests
+test only_embedded_assets_are_served_and_api_is_uncached ... ok
+test missing_header_host_and_foreign_origins_are_rejected ... ok
+test search_rejects_overlong_queries ... ok
+test same_origin_client_is_accepted ... ok
+test invalid_import_is_atomic_over_http ... ok
+test malformed_json_unknown_commands_and_wrong_types_do_not_mutate ... ok
+test stale_revision_and_title_collision_are_distinct_conflicts ... ok
+test typed_create_read_search_and_rename_roundtrip ... ok
+test json_escape_expansion_of_a_valid_note_is_supported ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.20s
+
+     Running tests\markdown.rs (C:\Users\Manicharan\Documents\Codex\2026-10-15\new-chat\work\selfhost-build\backend\debug\deps\markdown-10b537300061c37e.exe)
+
+running 16 tests
+test basename_ambiguity_and_nfc_resolution ... ok
+test paragraph_continuation_indentation_is_not_an_indented_code_block ... ok
+test rename_to_md_title_does_not_duplicate_extension ... ok
+test escaped_links_and_html_are_not_indexed ... ok
+test malformed_link_does_not_swallow_a_later_valid_link ... ok
+test traversal_duplicate_id_empty_and_oversized_title_validation ... ok
+test rename_rewrites_only_resolved_target_spans_and_preserves_code_aliases_and_extensions ... ok
+test wiki_labels_and_attributes_cannot_inject_html ... ok
+test tasks_keep_line_numbers_after_unicode_and_wiki_expansion ... ok
+test code_fences_variable_delimiters_inline_code_and_unclosed_code_are_not_indexed ... ok
+test heading_offsets_match_utf16_and_ids_are_unique_even_with_suffix_collisions ... ok
+test self_heading_link_uses_current_identity ... ok
+test raw_html_and_unsafe_links_are_escaped_or_removed ... ok
+test unicode_tags_and_normalized_search ... ok
+test aliases_anchors_embeddings_unicode_and_deduplicated_backlinks ... ok
+test malformed_unicode_markdown_does_not_panic ... ok
+
+test result: ok. 16 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+
+     Running tests\selfhost.rs (C:\Users\Manicharan\Documents\Codex\2026-10-15\new-chat\work\selfhost-build\backend\debug\deps\selfhost-4497ffbe254d4033.exe)
+
+running 9 tests
+test public_configuration_fails_closed ... ok
+test access_key_validation_revocation_and_rate_limit ... ok
+test bedrock_client_header_and_native_preflight_work ... ok
+test invalid_bearer_never_falls_back_to_valid_cookie ... ok
+test authentication_cookie_bearer_logout_and_restart_semantics ... ok
+test host_spoofing_login_body_limit_and_health_are_bounded ... ok
+test cors_preflights_require_exact_origin_methods_and_headers ... ok
+test database_identity_persists_and_rejects_wrong_notebook_with_same_revision ... ok
+test schema_one_upgrade_preserves_notes_and_revision ... ok
+
+test result: ok. 9 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+     Running tests\storage.rs (C:\Users\Manicharan\Documents\Codex\2026-10-15\new-chat\work\selfhost-build\backend\debug\deps\storage-17d660426ef65d29.exe)
+
+running 12 tests
+test invalid_late_import_item_does_not_partially_import ... ok
+test stale_writes_do_not_overwrite_data ... ok
+test sql_metacharacters_are_data ... ok
+test oversized_body_and_missing_id_do_not_mutate ... ok
+test rename_collision_rolls_back_every_note_and_revision ... ok
+test rename_updates_unique_basename_links_and_preserves_code ... ok
+test imported_long_unicode_titles_get_valid_unique_suffixes ... ok
+test duplicate_import_titles_are_rejected_atomically ... ok
+test import_collision_rewrites_links_between_imported_notes ... ok
+test incompatible_schema_is_not_silently_replaced ... ok
+test create_update_delete_and_reopen_persist ... ok
+test simultaneous_connections_allow_exactly_one_revision_winner ... ok
+
+test result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.05s
+
+   Doc-tests lattice
+
+running 0 tests
+
+test result: ok. 0 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.00s
+

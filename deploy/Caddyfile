@@ -1,0 +1,4 @@
+{$BEDROCK_DOMAIN} {
+    encode zstd gzip
+    reverse_proxy lattice:4173
+}

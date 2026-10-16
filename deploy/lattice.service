@@ -1,0 +1,22 @@
+[Unit]
+Description=Bedrock notes server
+After=network.target
+
+[Service]
+User=lattice
+Group=lattice
+WorkingDirectory=/var/lib/lattice
+EnvironmentFile=/etc/lattice/server.env
+ExecStart=/opt/lattice/bedrock
+Restart=on-failure
+RestartSec=3
+StateDirectory=lattice
+UMask=0077
+NoNewPrivileges=true
+ProtectSystem=strict
+ProtectHome=true
+PrivateTmp=true
+ReadWritePaths=/var/lib/lattice
+
+[Install]
+WantedBy=multi-user.target

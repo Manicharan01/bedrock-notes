@@ -1,0 +1,10 @@
+.git
+.github
+native
+node_modules
+data
+secrets
+*.sqlite3*
+*.zip
+*.exe
+*.apk

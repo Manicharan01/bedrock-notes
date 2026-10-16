@@ -1,0 +1,51 @@
+{
+  "app": "Bedrock",
+  "version": "0.4.1",
+  "date": "2026-10-16",
+  "rust_tests_passed": 47,
+  "client_tests_passed": 15,
+  "responsive_widths_tested": [
+    320,
+    390
+  ],
+  "document_horizontal_overflow": false,
+  "browser_mobile_create_save_read": true,
+  "links_drawer_and_atlas_verified": true,
+  "compose_new_and_legacy_variables_validated": true,
+  "compatibility": {
+    "existing_notebook_uuid_preserved": true,
+    "existing_notes_unchanged": true,
+    "note_count": 8,
+    "bedrock_header_supported": true,
+    "legacy_header_supported": true,
+    "version": "0.4.0"
+  },
+  "apk": {
+    "version": "0.4.1",
+    "label": "Bedrock",
+    "application_id": "org.lattice.notes.debug",
+    "version_code": 4001,
+    "apk_bytes": 21719189,
+    "sha256": "a2302662346257731dde6c7f8bf78117641d15cfda44609b2a59e2a7d24eb50a",
+    "elf_load_alignment": [
+      16384,
+      16384,
+      16384
+    ],
+    "zip_alignment_16kb": true,
+    "signature_verified": true,
+    "matches_previous_signing_certificate": true
+  },
+  "native_device_ui_automated": false,
+  "linux_packages": "skipped at user request",
+  "previous_server_client_compatibility": {
+    "previous_server_version": "0.3.0",
+    "bedrock_client_login": true,
+    "bedrock_client_read_notebook": true,
+    "bedrock_client_logout": true
+  },
+  "keyboard_shortcuts_dialog_verified": true,
+  "escape_panel_close_focus_verified": true,
+  "documentation_local_links_checked": 51,
+  "public_source_scan_passed": true
+}

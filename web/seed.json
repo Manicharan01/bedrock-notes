@@ -1,0 +1,44 @@
+[
+  {
+    "id": "seed-0",
+    "title": "Welcome to Bedrock",
+    "body": "# Your notes. Solid ground.\n\nWelcome to **Bedrock**. A quiet place to collect ideas, make connections, and build something that lasts.\n\n## Start with one good thought\n\nWrite a note. Give it a clear name. Then use `[[Note title]]` to connect it to another idea.\n\n- **Write** to work in Markdown.\n- **Read** for a clean page.\n- **Both** to keep source and preview together.\n\n## Find the layers\n\nOpen [[Linked thinking]] to follow a connection, or choose **Atlas** to see the whole notebook. The **Links** panel holds backlinks and your outline when you need them.\n\n> Build a useful notebook one thought at a time.\n\n## A place to begin\n\n- [ ] Capture an idea in [[Quick ideas]]\n- [ ] Make a plan in [[Project notebook]]\n- [ ] Start a daily note\n\nYour notes are stored in SQLite on your own server. Open **Settings** for imports, exports, backups, and your server connection.\n\n#start-here #notes",
+    "updated": 1792123563421
+  },
+  {
+    "id": "seed-1",
+    "title": "Linked thinking",
+    "body": "# Think in connections\n\nA note is a small unit of thought. A link gives that thought a place in a bigger picture.\n\nWhen you write [[Your knowledge garden]], Bedrock records an outgoing link. That note then shows this one as a **backlink**.\n\n## A useful habit\n\nBefore you finish a note, ask: *what does this remind me of?*\n\nTry connecting your [[Reading list]] to a project in [[Project notebook]].\n\n#thinking #connections",
+    "updated": 1792123503421
+  },
+  {
+    "id": "seed-2",
+    "title": "Your knowledge garden",
+    "body": "# Grow a knowledge garden\n\nCollect seeds in [[Quick ideas]]. Let useful notes grow. Connect them with [[Linked thinking]].\n\n## Follow the threads\n\nThe graph is a map of internal links. Click a point to open its note. Drag points to arrange the view.\n\nA garden gets better with care. Return to your [[Reading list]], remove what no longer serves you, and make room for new ideas.\n\n#thinking #notes",
+    "updated": 1792123443421
+  },
+  {
+    "id": "seed-3",
+    "title": "Quick ideas",
+    "body": "# Leave a little room for curiosity\n\n## Things to explore\n\n- A notebook that makes connections visible\n- Small tools that work without an account\n- The relationship between [[Daily practice]] and creative work\n\nAn idea doesn't need to be finished to be worth keeping. Move a promising one into [[Project notebook]].\n\n#ideas",
+    "updated": 1792123383421
+  },
+  {
+    "id": "seed-4",
+    "title": "Reading list",
+    "body": "# Read. Reflect. Connect.\n\n## On the shelf\n\n- [ ] A book about systems thinking\n- [ ] An essay about learning in public\n- [x] A guide to Markdown\n\n## Reading notes\n\nDon't just summarize. Write what changed your mind, then connect it to [[Linked thinking]] or a question in [[Quick ideas]].\n\n#reading #thinking",
+    "updated": 1792123323421
+  },
+  {
+    "id": "seed-5",
+    "title": "Project notebook",
+    "body": "# Build something small\n\n**Goal:** turn one useful idea into something you can use.\n\n## Next steps\n\n- [ ] Pick an idea from [[Quick ideas]]\n- [ ] Describe the smallest useful version\n- [ ] Make a little progress with [[Daily practice]]\n\n## Keep it simple\n\nStart with the part that matters most. Make it work. Then make it pleasant.\n\n#projects",
+    "updated": 1792123263421
+  },
+  {
+    "id": "seed-6",
+    "title": "Daily practice",
+    "body": "# Small steps, taken often\n\nA place to pause, reflect, and start again. Use the calendar icon to create today's daily note.\n\n## Three questions\n\n1. What did I notice today?\n2. What am I learning?\n3. What is one next step for [[Project notebook]]?\n\nA useful ritual connects [[Quick ideas]] with action.\n\n#daily #thinking",
+    "updated": 1792123203421
+  }
+]
